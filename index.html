@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopWave — Modern Fashion & Lifestyle</title>
+
+  <!-- Theme applied BEFORE render to prevent flash -->
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts — Playfair Display (editorial) + DM Sans (clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/skeleton.css" />
+  <link rel="stylesheet" href="css/dark-mode.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ HEADER ═══ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+
+      <!-- Logo -->
+      <a href="#" class="header__logo">
+        <span class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+        ShopWave
+      </a>
+
+      <!-- Nav Links (desktop) -->
+      <nav class="header__nav" id="headerNav">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#" class="nav-link nav-link--wishlist" id="wishlistNavBtn">
+          <i class="fa-regular fa-heart"></i> Wishlist
+          <span class="wishlist-nav-badge" id="wishlistNavBadge"></span>
+        </a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header__actions">
+        <!-- Dark Mode Toggle -->
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+
+        <!-- Wishlist -->
+        <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge" id="wishlistBadge"></span>
+        </button>
+
+        <!-- Cart -->
+        <button class="icon-btn cart-btn" id="cartBtn" aria-label="Open cart" title="Open cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge" id="cartBadge"></span>
+        </button>
+
+        <!-- Hamburger (mobile) -->
+        <button class="icon-btn hamburger" id="hamburger" aria-label="Menu" title="Menu">
+          <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#products" class="nav-link" id="mobileProductsLink">Products</a>
+      <a href="#reviews" class="nav-link" id="mobileReviewsLink">Reviews</a>
+      <a href="#contact" class="nav-link" id="mobileContactLink">Contact</a>
+      <a href="#" class="nav-link" id="mobileWishlistLink">
+        <i class="fa-regular fa-heart"></i> Wishlist
+      </a>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ HERO BANNER ═══ -->
+  <section class="hero-section">
+    <div class="hero-banner-new">
+
+      <!-- Background image layer -->
+      <div class="hb-img-layer">
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/028/714/263/small/fashion-week-model-isolated-on-pastel-background-with-a-place-for-text-photo.jpg
+"
+          alt="Premium Fashion Banner"
+          class="hb-img"
+          onerror="this.closest('.hb-img-layer').style.background='linear-gradient(135deg,#1E1B4B,#5B21B6)'"
+        />
+        <div class="hb-overlay"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="hb-content">
+        <span class="hb-eyebrow">
+          <span class="hb-eyebrow-dot"></span> New Season Arrivals
+        </span>
+        <h1 class="hb-title">
+          Dress to<br />
+          <em class="hb-title-accent">Impress</em>
+        </h1>
+        <p class="hb-sub">Curated fashion for the modern wardrobe — from everyday essentials to statement pieces that turn heads.</p>
+        <div class="hb-actions">
+          <a href="#products" class="hb-btn-primary">
+            <i class="fa-solid fa-bag-shopping"></i> Shop Now
+          </a>
+          <a href="#products" class="hb-btn-ghost">View All Collections <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="hb-trust-row">
+          <div class="hb-trust-item">
+            <i class="fa-solid fa-star"></i>
+            <span><strong>4.9★</strong> Rated</span>
+          </div>
+          <div class="hb-trust-sep"></div>
+          <div class="hb-trust-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Secure Checkout</span>
+          </div>
+          <div class="hb-trust-sep"></div>
+          <div class="hb-trust-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Free Shipping $50+</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category chips — bottom right -->
+      <div class="hb-chips-float">
+        <span class="hb-chip">Electronics</span>
+        <span class="hb-chip">Jewellery</span>
+        <span class="hb-chip">Men's</span>
+        <span class="hb-chip">Women's</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ STATS BAND ═══ -->
+  <div class="stats-band">
+    <div class="stats-band__inner">
+      <div class="stats-item">
+        <span class="stats-item__num">50K+</span>
+        <span class="stats-item__label">Happy Customers</span>
+      </div>
+      <div class="stats-divider"></div>
+      <div class="stats-item">
+        <span class="stats-item__num">200+</span>
+        <span class="stats-item__label">Premium Products</span>
+      </div>
+      <div class="stats-divider"></div>
+      <div class="stats-item">
+        <span class="stats-item__num">4.9★</span>
+        <span class="stats-item__label">Average Rating</span>
+      </div>
+      <div class="stats-divider"></div>
+      <div class="stats-item">
+        <span class="stats-item__num">24/7</span>
+        <span class="stats-item__label">Customer Support</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ PRODUCTS SECTION ═══ -->
+  <main class="main" id="products">
+
+    <!-- Section Heading -->
+    <div class="section-heading">
+      <div class="section-heading__eyebrow">
+        <i class="fa-solid fa-grid-2"></i> Our Collection
+      </div>
+      <h2 class="section-heading__title">Explore <span>Products</span></h2>
+      <p class="section-heading__sub">Browse hundreds of premium products across all your favorite categories.</p>
+    </div>
+
+    <!-- Controls Bar -->
+    <div class="controls">
+      <div class="controls__top">
+        <!-- Search -->
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search products…"
+            aria-label="Search products"
+            autocomplete="off"
+          />
+          <button class="search-clear" id="searchClear" aria-label="Clear search">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Sort -->
+        <div class="sort-wrap">
+          <i class="fa-solid fa-arrow-up-wide-short sort-icon"></i>
+          <select id="sortSelect" class="sort-select" aria-label="Sort products">
+            <option value="default">Sort By</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="rating-desc">Best Rated</option>
+            <option value="name-asc">Name: A → Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="filters" id="categoryFilters">
+        <!-- Dynamically generated -->
+      </div>
+
+      <!-- Results Bar -->
+      <div class="results-bar">
+        <span class="product-count" id="productCount">Loading products…</span>
+        <button class="btn btn--ghost btn--sm" id="clearFiltersBtn">
+          <i class="fa-solid fa-filter-circle-xmark"></i> Clear All
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid" id="productGrid">
+      <!-- Skeleton cards inserted by JS -->
+    </div>
+
+    <!-- Error State -->
+    <div class="error-state hidden" id="errorState">
+      <div class="error-state__icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <h2 class="error-state__title">Couldn't load products</h2>
+      <p class="error-state__msg">Something went wrong while fetching the products. Please check your connection and try again.</p>
+      <button class="btn btn--primary" id="retryBtn">
+        <i class="fa-solid fa-rotate-right"></i> Try Again
+      </button>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state hidden" id="emptyState">
+      <div class="empty-state__icon"><i class="fa-solid fa-box-open"></i></div>
+      <h2 class="empty-state__title">No products found</h2>
+      <p class="empty-state__msg">Try adjusting your search or filters to find what you're looking for.</p>
+      <button class="btn btn--primary" id="emptyStateClearBtn">
+        <i class="fa-solid fa-filter-circle-xmark"></i> Clear Filters
+      </button>
+    </div>
+
+    <!-- Load More -->
+    <div class="load-more-wrap" id="loadMoreWrap">
+      <button class="btn btn--outline btn--lg" id="loadMoreBtn">
+        <i class="fa-solid fa-circle-down"></i> Load More Products
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════ REVIEWS SECTION ═══ -->
+  <section class="reviews-section" id="reviews">
+
+    <div class="section-heading">
+      <div class="section-heading__eyebrow">
+        <i class="fa-solid fa-heart"></i> Customer Love
+      </div>
+      <h2 class="section-heading__title">What Our <span>Shoppers Say</span></h2>
+      <p class="section-heading__sub">Thousands of happy customers trust ShopWave for their fashion needs. Here's what they have to say.</p>
+    </div>
+
+    <div class="reviews-grid">
+
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <span class="review-card__verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+        </div>
+        <p class="review-card__text">"Absolutely love the quality! The women's clothing section has amazing pieces. Delivery was fast and packaging was gorgeous. Will definitely shop again."</p>
+        <div class="review-card__author">
+          <div class="review-card__avatar review-card__avatar--img">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80&auto=format&fit=crop&crop=face" alt="Sarah Mitchell" onerror="this.parentElement.textContent='S'" />
+          </div>
+          <div>
+            <div class="review-card__name">Sarah Mitchell</div>
+            <div class="review-card__role">Fashion Blogger · New York</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <span class="review-card__verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+        </div>
+        <p class="review-card__text">"Found the perfect gold necklace in the jewelry section. Great value for money and the secure checkout process made me feel completely safe shopping here."</p>
+        <div class="review-card__author">
+          <div class="review-card__avatar review-card__avatar--img">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80&auto=format&fit=crop&crop=face" alt="Aisha Rahman" onerror="this.parentElement.textContent='A'" />
+          </div>
+          <div>
+            <div class="review-card__name">Aisha Rahman</div>
+            <div class="review-card__role">Verified Buyer · London</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <span class="review-card__verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+        </div>
+        <p class="review-card__text">"The electronics selection is top-notch. Got a great pair of headphones and they work perfectly. Customer service was super responsive when I had a question."</p>
+        <div class="review-card__author">
+          <div class="review-card__avatar review-card__avatar--img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80&auto=format&fit=crop&crop=face" alt="James Thornton" onerror="this.parentElement.textContent='J'" />
+          </div>
+          <div>
+            <div class="review-card__name">James Thornton</div>
+            <div class="review-card__role">Tech Enthusiast · Toronto</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <span class="review-card__verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+        </div>
+        <p class="review-card__text">"ShopWave has completely replaced my usual shopping app. The men's clothing range is stylish and well-priced. Shipping was faster than expected. 10/10!"</p>
+        <div class="review-card__author">
+          <div class="review-card__avatar review-card__avatar--img">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&auto=format&fit=crop&crop=face" alt="Marco Delgado" onerror="this.parentElement.textContent='M'" />
+          </div>
+          <div>
+            <div class="review-card__name">Marco Delgado</div>
+            <div class="review-card__role">Loyal Customer · Madrid</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+  <footer class="site-footer" id="contact">
+
+    <!-- Top accent bar -->
+    <div class="footer__accent-bar"></div>
+
+    <div class="footer__inner">
+
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand-col">
+          <div class="footer__brand-logo">
+            <span class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+            ShopWave
+          </div>
+          <p class="footer__brand-desc">Your premium destination for fashion, electronics, and lifestyle products. Quality you can trust, style you'll love.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="footer__social-btn" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="footer__social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="footer__social-btn" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="#" class="footer__social-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer__col-title">Quick Links</h4>
+          <div class="footer__links">
+            <a href="#"><i class="fa-solid fa-chevron-right"></i> Home</a>
+            <a href="#products"><i class="fa-solid fa-chevron-right"></i> Products</a>
+            <a href="#reviews"><i class="fa-solid fa-chevron-right"></i> Reviews</a>
+            <a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+            <a href="#"><i class="fa-solid fa-chevron-right"></i> About Us</a>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h4 class="footer__col-title">Categories</h4>
+          <div class="footer__links">
+            <a href="#products"><i class="fa-solid fa-chevron-right"></i> Electronics</a>
+            <a href="#products"><i class="fa-solid fa-chevron-right"></i> Jewellery</a>
+            <a href="#products"><i class="fa-solid fa-chevron-right"></i> Men's Clothing</a>
+            <a href="#products"><i class="fa-solid fa-chevron-right"></i> Women's Clothing</a>
+            <a href="#products"><i class="fa-solid fa-chevron-right"></i> New Arrivals</a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="footer__col-title">Get In Touch</h4>
+          <div class="footer__contact-items">
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="footer__contact-info">
+                <strong>Email</strong>
+                <span>hello@shopwave.com</span>
+              </div>
+            </div>
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="footer__contact-info">
+                <strong>Phone</strong>
+                <span>+1 (555) 234-5678</span>
+              </div>
+            </div>
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="footer__contact-info">
+                <strong>Address</strong>
+                <span>42 Fashion Ave, New York, NY 10001</span>
+              </div>
+            </div>
+          </div>
+          <!-- Newsletter mini -->
+          <div class="footer__newsletter">
+            <p class="footer__newsletter-label">Get style updates</p>
+            <div class="footer__newsletter-row">
+              <input type="email" class="footer__newsletter-input" placeholder="Your email" />
+              <button class="footer__newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2025 ShopWave. All rights reserved. Made with <i class="fa-solid fa-heart" style="color:#A78BFA;font-size:11px;"></i> for fashion lovers.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════ CART DRAWER ═══ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">
+        <i class="fa-solid fa-bag-shopping"></i> Your Cart
+        <span class="cart-item-count" id="cartItemCount"></span>
+      </h2>
+      <button class="icon-btn" id="closeCartBtn" aria-label="Close cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Cart Items List -->
+    <div class="cart-drawer__body" id="cartBody">
+      <!-- Items rendered by cart.js -->
+    </div>
+
+    <!-- Cart Footer -->
+    <div class="cart-drawer__footer" id="cartFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span class="cart-subtotal__amount" id="cartSubtotal">$0.00</span>
+      </div>
+      <button class="btn btn--primary btn--full" id="checkoutBtn">
+        <i class="fa-solid fa-lock"></i> Secure Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════ PRODUCT MODAL ═══ -->
+  <div class="modal-overlay" id="productModalOverlay">
+    <div class="modal product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" id="closeProductModal" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="product-modal__content" id="productModalContent">
+        <!-- Filled by ui.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ CHECKOUT MODAL ═══ -->
+  <div class="modal-overlay" id="checkoutModalOverlay">
+    <div class="modal checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <button class="modal__close" id="closeCheckoutModal" aria-label="Close checkout">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="checkout-modal__content" id="checkoutModalContent">
+        <!-- Filled by cart.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ WISHLIST MODAL ═══ -->
+  <div class="modal-overlay" id="wishlistModalOverlay">
+    <div class="modal wishlist-modal" id="wishlistModal" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle">
+      <button class="modal__close" id="closeWishlistModal" aria-label="Close wishlist">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="wishlist-modal__content" id="wishlistModalContent">
+        <!-- Filled by ui.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- JS Modules (order matters) -->
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

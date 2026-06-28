@@ -1,0 +1,149 @@
+/* ═══════════════════════════════════════════════════════════════
+   dark-mode.css — Dark theme overrides
+   Applied when <html data-theme="dark">
+═══════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  --color-bg:          #080614;
+  --color-surface:     #0F0B22;
+  --color-surface-2:   #181330;
+  --color-border:      #2A2248;
+  --color-text:        #EDE9FF;
+  --color-text-muted:  #8F8BB8;
+  --color-text-light:  #4A476E;
+
+  --color-primary:     #A78BFA;
+  --color-primary-dk:  #7C3AED;
+  --color-primary-lt:  #1C1838;
+
+  --grad-primary:    linear-gradient(135deg, #8B5CF6 0%, #60A5FA 100%);
+  --grad-primary-h:  linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%);
+  --grad-hero:       linear-gradient(135deg, #030210 0%, #0A0720 45%, #120D35 75%, #1E1050 100%);
+  --grad-footer:     linear-gradient(160deg, #030210 0%, #08051A 40%, #0F0A28 70%, #060312 100%);
+  --grad-surface:    linear-gradient(180deg, #0F0B22 0%, #080614 100%);
+
+  --shadow-sm:   0 1px 4px rgba(0,0,0,.45);
+  --shadow-md:   0 4px 20px rgba(0,0,0,.55);
+  --shadow-lg:   0 16px 52px rgba(0,0,0,.65);
+  --shadow-xl:   0 32px 80px rgba(0,0,0,.78);
+  --shadow-glow: 0 8px 36px rgba(167,139,250,.35);
+  --shadow-card: 0 2px 12px rgba(0,0,0,.4);
+}
+
+/* Header glass in dark */
+[data-theme="dark"] .header {
+  background: rgba(8,6,20,.92);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .mobile-nav {
+  background: rgba(10,8,24,.98);
+}
+
+/* Stats band */
+[data-theme="dark"] .stats-band__inner {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+/* Search + Sort inputs */
+[data-theme="dark"] .search-input,
+[data-theme="dark"] .sort-select {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+[data-theme="dark"] .search-input::placeholder {
+  color: var(--color-text-light);
+}
+
+/* Skeleton shimmer in dark */
+[data-theme="dark"] .skeleton-shimmer::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.04) 50%,
+    transparent 100%
+  );
+}
+
+/* Filter buttons */
+[data-theme="dark"] .filter-btn {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+/* Wishlist button */
+[data-theme="dark"] .product-card__wishlist {
+  background: var(--color-surface-2);
+  border-color: var(--color-border);
+}
+[data-theme="dark"] .product-card__wishlist.wishlisted {
+  background: rgba(220,38,38,.15);
+}
+
+/* Reviews section background */
+[data-theme="dark"] .reviews-section {
+  background: linear-gradient(180deg, var(--color-bg) 0%, #100C28 50%, var(--color-bg) 100%);
+}
+
+/* Review card */
+[data-theme="dark"] .review-card {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+[data-theme="dark"] .review-card__author {
+  border-color: var(--color-border);
+}
+[data-theme="dark"] .review-card__avatar {
+  border-color: var(--color-border);
+}
+
+/* Toast */
+[data-theme="dark"] .toast {
+  background: #EDE9FF;
+  color: #080614;
+}
+
+/* Checkout icon */
+[data-theme="dark"] .checkout-icon {
+  background: rgba(5,150,105,.15);
+}
+
+/* Qty input */
+[data-theme="dark"] .modal-qty-input {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+/* Hero banner dark — deeper overlay */
+[data-theme="dark"] .hb-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(3,2,14,.97) 0%,
+    rgba(8,5,25,.88) 30%,
+    rgba(12,8,32,.6) 55%,
+    rgba(5,3,15,.25) 75%,
+    transparent 100%
+  );
+}
+
+/* Footer dark */
+[data-theme="dark"] .site-footer {
+  background: linear-gradient(160deg, #030210 0%, #060418 40%, #0A0820 70%, #030210 100%);
+}
+
+[data-theme="dark"] .footer__bottom {
+  border-color: rgba(255,255,255,.06);
+}
+
+[data-theme="dark"] .footer__newsletter-input {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.1);
+  color: rgba(255,255,255,.85);
+}
+[data-theme="dark"] .footer__newsletter-input::placeholder {
+  color: rgba(255,255,255,.2);
+}
