@@ -513,7 +513,12 @@ h1, h2, h3 {
   .hb-chips-float { bottom: 24px; right: 24px; }
 }
 @media (max-width: 600px) {
-  .hero-banner-new { height: 440px; }
+  .hero-banner-new {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    min-height: 440px;
+  }
+  .hb-img { object-position: 75% top; }
   .hb-content { padding: 0 28px; max-width: 100%; }
   .hb-chips-float { display: none; }
   .hb-title { font-size: 2.4rem; }
@@ -522,7 +527,11 @@ h1, h2, h3 {
   .hb-trust-row { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 @media (max-width: 420px) {
-  .hero-banner-new { height: 380px; }
+  .hero-banner-new {
+    aspect-ratio: 3 / 4;
+    min-height: 380px;
+  }
+  .hb-img { object-position: 75% top; }
   .hb-content { padding: 0 20px; }
   .hb-title { font-size: 2rem; }
   .hb-sub { display: none; }
